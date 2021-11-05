@@ -1,15 +1,16 @@
 import pickle
+import os
 import pandas as pd
 from flask                           import Flask, request, Response
 from healthinsurance.HealthInsurance import HealthInsurance
 
 # loading model
-model = pickle.load( open( r'C:\Users\Cliente\repos\pa004_cross_sell\cross-sell\models\model_health_insurance.pkl', 'rb' ) )
+model = pickle.load( open( r'C:\Users\Cliente\repos\pa004_cross_sell\cross-sell\models\model_xgb.pkl', 'rb' ) )
 
 # initialize api
 app = Flask( __name__ )
 
-@app.route( '/healthinsurance/predict', methods=['POST'] )
+@app.route( '/predict', methods=['POST'] )
 def healthinsurance_predict():
     test_json = request.get_json()
     
@@ -33,7 +34,7 @@ def healthinsurance_predict():
         df3 = pipeline.data_preparation( df2 )
         
         # prediction
-        df_response = pipeline.get_predicition( model, test_raw, df3 )
+        df_response = pipeline.get_prediction( model, test_raw, df3 )
         
         return df_response
     
@@ -46,4 +47,4 @@ def healthinsurance_predict():
 
 if __name__ == '__main__':
     port = os.environ.get( 'PORT', 5000 )
-    app.run( '0.0.0.0', port=port, debug=True )
+    app.run( '127.0.0.1', port=port, debug=True )

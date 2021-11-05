@@ -2,7 +2,7 @@ import pickle
 import inflection
 import pandas as pd
 
-class HealthInsurance( objects ):
+class HealthInsurance( object ):
     
     def __init__( self ):
         self.home_path                   = r'C:\Users\Cliente\repos\pa004_cross_sell\cross-sell\parameter'
@@ -22,7 +22,7 @@ class HealthInsurance( objects ):
 
         old_columns = ['id', 'Gender', 'Age', 'Driving_License', 'Region_Code',
                'Previously_Insured', 'Vehicle_Age', 'Vehicle_Damage', 'Annual_Premium',
-               'Policy_Sales_Channel', 'Vintage', 'Response']
+               'Policy_Sales_Channel', 'Vintage']
 
         snakecase = lambda x: inflection.underscore( x )
 
@@ -45,6 +45,9 @@ class HealthInsurance( objects ):
                                                     'semester' if (x > 90) & (x <= 180) else 'close to a year')
         # premium_per_day (annual_premium/vintage)
         df2['premium_per_day'] = round( df2['annual_premium'] / df2['vintage'], 2 )
+        
+
+        df2['vehicle_damage'] = df2['vehicle_damage'].apply( lambda x: 1 if x == 'Yes' else 0 )
 
         return df2
        
@@ -94,3 +97,14 @@ class HealthInsurance( objects ):
         cols_selected = [ 'premium_per_day', 'vintage', 'annual_premium', 'age', 'region_code', 'vehicle_damage', 'policy_sales_channel', 'previously_insured' ]
         
         return df5[ cols_selected ]
+
+
+    def get_prediction (self, model, original_data, test_data):
+        
+        # prediction
+        pred = model.predict_proba(test_data)
+
+        # join pred into original data
+        original_data['score'] = pred[:,1].tolist()
+        
+        return original_data.to_json(orient = 'records', date_format = 'iso')
