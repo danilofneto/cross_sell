@@ -1,4 +1,4 @@
-![question22](images\Car-Insurance.jpg)
+![question22](images/Car-Insurance.jpg)
 
 # Insurance All Company
 
@@ -119,8 +119,8 @@ The following machine learning models were trained:
 ##  Machine Learning Modelo Performance
 The chosen model was **Extra Tress Classifier** because they have high performance on cross validation data.
 
-![image](images\CV-performance.PNG)
-![image](images\ET-curves.PNG)
+![image](images/CV-performance.PNG)
+![image](images/ET-curves.PNG)
 
 
 
@@ -129,11 +129,11 @@ The chosen model was **Extra Tress Classifier** because they have high performan
 ## What percentage of customers interested in purchasing auto insurance can the sales force reach with 20,000 calls?
 By using 26% of test data, in which wold translate as 20 thousand calls by the sales team, the model would be able to identify 69% people out of the total people interested in purchasing the insurance
 
-![image](images\cumulative-gain-top20k.PNG)
+![image](images/cumulative-gain-top20k.PNG)
 
 By Making 20 thousand calls, the model proposed is roughly 2,5 times better than random choice
 
-![image](images\lift-curve-top20k.PNG)
+![image](images/lift-curve-top20k.PNG)
 
 revenue with random choice: $19.817.720
 
@@ -144,11 +144,11 @@ Difference in $: $29.726.580
 ## What percentage of customers interested in purchasing auto insurance can the sales force reach with 40,000 calls?
 By using 52.47% of validation data, in which wold translate as 40 thousand calls by the sales team, the model would be able to identify 99.36% people out of the total people interested in purchasing the insurance.
 
-![image](images\cumulative-gain-top40k.PNG)
+![image](images/cumulative-gain-top40k.PNG)
 
 By Making 40 thousand calls, the model proposed is roughly 1,6 times better than random choice.
 
-![image](images\lift-curve-top40k.PNG)
+![image](images/lift-curve-top40k.PNG)
                       
 #  Conclusão
 
