@@ -1,4 +1,4 @@
-![question22](images\Car-Insurance.jpg)
+![question22](images/Car-Insurance.jpg)
 
 # Insurance All Company
 
@@ -47,10 +47,12 @@ The API will be hosted on the Heroku platform and is available at this url: heal
 
 ## Google Sheets with prediction button
 
-Access to the model's forecast result directly in a Google Sheets spreadsheet, facilitating the use by the call team, can be accessed through from the url:
+Access to the model's forecast result directly in a Google Sheets spreadsheet, facilitating the use by the call team, can be accessed through from the url: https://docs.google.com/spreadsheets/d/14Hzfr7wL_6B5ilLK7iF2DWrv1BQR-10khzza3kjcH9U/edit?usp=sharing
+
+![image]( images/googlesheets.PNG )
 
 
-# Estratégia da Solução:
+# Solution Strategy:
 
 My strategy to solve this challenge was:
 
@@ -92,12 +94,15 @@ The initial DataSet has 381109 rows and 12 columns. The features are the followi
 # Top 3 Data Insights
 
 **Hypothesis 1** - People aged 30 and over are more interested in insurance
+
 **TRUE:** Approximately 87% of interested customers are over 30 years of age.
 
 **Hypothesis 3** - Women are more interested in signing the insurance.
+
 **FALSE:**  Men are more interested (61.17%) in purchasing vehicle insurance than women (38.83%).
 
 **Hypothesis 8** - People who pay more for health insurance tend to subscribe to car insurance.
+
 **FALSE:** Customers who spent less than $30,000 on insurance were the ones who most said they were interested in signing up for health insurance.
 
 
@@ -119,8 +124,8 @@ The following machine learning models were trained:
 ##  Machine Learning Modelo Performance
 The chosen model was **Extra Tress Classifier** because they have high performance on cross validation data.
 
-![image](images\CV-performance.PNG)
-![image](images\ET-curves.PNG)
+![image](images/CV-performance.PNG)
+![image](images/ET-curves.PNG)
 
 
 
@@ -129,11 +134,11 @@ The chosen model was **Extra Tress Classifier** because they have high performan
 ## What percentage of customers interested in purchasing auto insurance can the sales force reach with 20,000 calls?
 By using 26% of test data, in which wold translate as 20 thousand calls by the sales team, the model would be able to identify 69% people out of the total people interested in purchasing the insurance
 
-![image](images\cumulative-gain-top20k.PNG)
+![image](images/cumulative-gain-top20k.PNG)
 
 By Making 20 thousand calls, the model proposed is roughly 2,5 times better than random choice
 
-![image](images\lift-curve-top20k.PNG)
+![image](images/lift-curve-top20k.PNG)
 
 revenue with random choice: $19.817.720
 
@@ -144,13 +149,22 @@ Difference in $: $29.726.580
 ## What percentage of customers interested in purchasing auto insurance can the sales force reach with 40,000 calls?
 By using 52.47% of validation data, in which wold translate as 40 thousand calls by the sales team, the model would be able to identify 99.36% people out of the total people interested in purchasing the insurance.
 
-![image](images\cumulative-gain-top40k.PNG)
+![image](images/cumulative-gain-top40k.PNG)
 
 By Making 40 thousand calls, the model proposed is roughly 1,6 times better than random choice.
 
-![image](images\lift-curve-top40k.PNG)
+![image](images/lift-curve-top40k.PNG)
                       
-#  Conclusão
+#  Conclusion:
+This project was important to understand the concept of Learning to Rank(MLR) is the application of machine learning in the construction of ranking models for information retrieval systems.
 
+There are several measures (metrics) which are commonly used to judge how well an algorithm is doing on training data and to compare the performance of different MLR algorithms. Often a learning-to-rank problem is reformulated as an optimization problem with respect to one of these metrics.
 
-#  Próximos Passos
+In this project i use the @k metrics because in the context of recommendation systems we are most likely interested in recommending top-N items to the callcenter. So it makes more sense to compute precision and recall metrics in the first N items instead of all the items. Thus the notion of precision and recall at k where k is a user definable integer that is set by the user to match the top-N recommendations objective.
+
+#  Next Steps to improve:
+
+- Create new features.
+- Create a website or telegram bot with the ranking.
+- Improve the interaction between API and spreadsheet so that users get more intuitive messages in case of errors.
+- make hyperparameter fine tuning on a server using robust methods.
