@@ -140,11 +140,11 @@ By Making 20 thousand calls, the model proposed is roughly 2,5 times better than
 
 ![image](images/lift-curve-top20k.PNG)
 
-revenue with random choice: $19.817.720
+revenue with random choice: $1.981772
 
-revenue with model: $49.544.300
+revenue with model: $4.954430
 
-Difference in $: $29.726.580
+Difference in $: $2.972658
 
 ## What percentage of customers interested in purchasing auto insurance can the sales force reach with 40,000 calls?
 By using 52.47% of validation data, in which wold translate as 40 thousand calls by the sales team, the model would be able to identify 99.36% people out of the total people interested in purchasing the insurance.
